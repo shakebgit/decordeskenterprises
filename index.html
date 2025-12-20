@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecorDesk Enterprises | Premium Toys & Handmade Decor</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="DecorDesk Enterprises by Afreen Siddiqui. Quality toys, baby clothing, and unique handmade products in Prayagraj.">
+    <meta name="keywords" content="DecorDesk, Toys, Baby Clothing, Handmade Products, Prayagraj Business">
+    
+    <style>
+        :root {
+            --primary: #1f3a5f; /* Deep Navy */
+            --secondary: #e67e22; /* Warm Orange */
+            --accent: #f1c40f; /* Soft Yellow */
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-muted: #7f8c8d;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styling (FIXED BANNER HEIGHT/ALIGNMENT) */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c538a 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-weight: 300;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 50px;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            border-left: 5px solid var(--secondary);
+            padding-left: 15px;
+        }
+
+        /* Products Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+
+        .card svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        /* Info Boxes */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .info-item h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Form Styling */
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+        }
+
+        button.btn-submit {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        button.btn-submit:hover {
+            background: #d35400;
+        }
+
+        /* Chat Widget (FIXED/FLOATING POSITIONING) */
+        
+        /* The main floating button */
+        #chat-toggle {
+            position: fixed; /* Ensures it floats relative to the viewport */
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-size: 24px;
+            z-index: 1000; /* Ensures it is above other content */
+        }
+
+        /* The pop-up window */
+			#chat-window {
+				display: none;
+				position: fixed; /* Ensures it floats relative to the viewport */
+				right: 20px;
+				bottom: 80px; /* Positions it just above the toggle button */
+				width: 300px;
+				background: white;
+				border-radius: 15px;
+				box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+				/* Removed overflow: hidden; and height constraints to allow dynamic height */
+				border: 1px solid #eee;
+				z-index: 1000;
+				}
+
+
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chat-body {
+            padding: 20px;
+        }
+
+        .wa-link {
+            display: block;
+            margin-top: 15px;
+            color: #25d366;
+            text-decoration: none;
+            font-weight: bold;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        footer {
+            background: #222;
+            color: #888;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 40px 20px; }
+            header h1 { font-size: 1.8rem; }
+            .container { margin-top: -20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <h1>DecorDesk Enterprises</h1>
+        <p>Curating Joy through Toys, Fashion & Handcrafted Art</p>
+    </div>
+</header>
+
+<div class="container">
+    <!-- About Section -->
+    <section id="about">
+        <h2>About the Brand</h2>
+        <p>
+            Established in the heart of <strong>Prayagraj, Uttar Pradesh</strong>, DecorDesk Enterprises is a premium proprietorship led by <strong>Afreen Siddiqui</strong>. 
+            We specialize in sourcing and creating high-quality lifestyle products that bring comfort to babies and smiles to families across India.
+        </p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Our Collections</h2>
+        <div class="grid-3">
+            <div class="card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #e74c3c;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <h3>Kids' Toys</h3>
+                <p>Safe, educational, and fun toys designed for cognitive growth and endless entertainment.</p>
+            </div>
+            <div class="card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #3498db;"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path></svg>
+                <h3>Baby Clothing</h3>
+                <p>Ultra-soft, breathable cotton fabrics designed specifically for the delicate skin of infants.</p>
+            </div>
+            <div class="card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #27ae60;"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path></svg>
+                <h3>Handmade</h3>
+                <p>Individually crafted items suitable for gifting and everyday use.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section>
+        <h2>Business Information</h2>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <h4>Owner</h4>
+                <p>Afreen Siddiqui<br>Proprietor</p>
+            </div>
+            <div class="info-item">
+                <h4>Address</h4>
+                <p>18 Z/P 6, Karamat ki Chauki,<br>Kareli, Prayagraj,<br>Uttar Pradesh – 211016</p>
+            </div>
+            <div class="info-item">
+                <h4>Helpdesk</h4>
+                <p>📞 +91 9873020789<br>✉️ decordeskenterprises@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section>
+        <h2>Contact / Inquiry</h2>
+
+        <form action="formsubmit.co" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Website Inquiry - DecorDesk Enterprises">
+
+            <input name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn-submit">Submit Inquiry</button>
+        </form>
+    </section>
+</div>
+
+<footer>
+    © 2025 DecorDesk Enterprises | Prayagraj, India
+</footer>
+
+<!-- CHATBOT -->
+<button id="chat-toggle">💬</button>
+
+<div id="chat-window">
+    <header h1 style="height:50px">Help Desk</header h1>
+    <div class="chat-body">
+        <p>Hello! 👋</p>
+        <p>
+            For product inquiries, orders, or support:
+        </p>
+        <p>
+            📞 +91 9873020789<br>
+            ✉️ decordeskenterprises@gmail.com
+        </p>
+        <p class="wa-link">Chat on WhatsApp →+91 9873020789</p>
+    </div>
+</div>
+
+<script>
+document.getElementById("chat-toggle").onclick = function(){
+  const bot = document.getElementById("chat-window");
+  bot.style.display = bot.style.display === "block" ? "none" : "block";
+};
+</script>
+
+</body>
+</html>
